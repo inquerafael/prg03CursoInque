@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.com.ifba.curso.controller;
+import br.com.ifba.curso.service.ICursoService;
+import br.com.ifba.curso.service.CursoService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -10,5 +14,6 @@ package br.com.ifba.curso.controller;
  */
 public class CursoController implements ICursoController{
     
-    //private 
+    //@Autowired
+    //private final ICursoService iService;
 }

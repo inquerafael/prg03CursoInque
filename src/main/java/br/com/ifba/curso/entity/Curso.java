@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable; // jpa
+
 /**
  *
  * @author inque
@@ -20,7 +22,7 @@ public class Curso {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     
     @Column(name = "Nome", nullable = false)
     private String nome;
@@ -38,15 +40,28 @@ public class Curso {
     public String toString() {
         return "Curso{" + "id=" + id + ", nome=" + nome + ", codCurso=" + codCurso + ", ativo=" + ativo + '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Curso curso = (Curso) o;
+        return id != null && id.equals(curso.id);
+    }
+
+    @Override
+    public int hashCode() {
+        if (id != null) {
+            return id.hashCode();
+        } else {
+            return 0; 
+        }
+    }
     
 
     //gets e sets
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNome() {
