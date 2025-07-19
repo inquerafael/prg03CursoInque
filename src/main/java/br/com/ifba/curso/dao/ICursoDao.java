@@ -4,10 +4,12 @@
  */
 package br.com.ifba.curso.dao;
 
+import br.com.ifba.curso.entity.Curso;
+
 /**
  *
  * @author inque
  */
-public interface ICursoDao {
-    
+public interface ICursoDao extends GenericDao<Curso, Long> {
+    Curso findByCodCurso(String numeroMatricula);
 }
